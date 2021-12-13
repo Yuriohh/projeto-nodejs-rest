@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Yuriohh/projeto-nodejs-rest/issues"
   },
-  "homepage": "https://github.com/Yuriohh/projeto-nodejs-rest#readme"
+  "homepage": "https://github.com/Yuriohh/projeto-nodejs-rest#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
