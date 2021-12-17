@@ -1,6 +1,15 @@
-const express = require('express');
-const app = express();
+const customExpress = require('./configs/customExpress');
+const conexao = require('./infraestrutura/conexao');
+const Tabelas = require('./infraestrutura/tabelas');
 
-app.listen(3000, () => {console.log('Server running on port 3000')});
+conexao.connect(erro => {
+    if(erro) console.log(erro);
 
-app.get('/atendimentos', (req, res) => {res.send('Servidor rodando, tudo ok !!!')});
+    console.log('Conectado ao Banco com sucesso');
+    
+    Tabelas.init(conexao);
+    
+    const app = customExpress();
+    app.listen(3000, () => {console.log('Server running on port 3000')});
+});
+
